@@ -1,0 +1,67 @@
+import random
+
+print("Welcome to Rock Paper Scissors")
+print("******************************")
+
+def play():
+    user = input("What's your choice? 'R' for Rock, 'P' for Paper, 'S' for Scissors")
+    user = user.lower
+
+    computer = random.choice(['R', 'P', 'S'])
+
+cpuScore = 0
+playerScore = 0
+tieScore = 0
+possibleHands = ['R', 'P', 'S']
+
+def checkforwinner(playerhand, computerhand):
+    if(playerhand == 'R' and computerhand == 'P'):
+       print("OOps you lost :(")
+       return "Cpu"
+    elif(playerhand == 'R' and computerhand == 'S'):
+       print("Congrats! You have won :)")
+       return "Player"
+    elif(playerhand == 'S' and computerhand == 'P'):
+       print("Congrats! You have won :)")
+       return "Player"
+    elif(playerhand == 'S' and computerhand == 'R'):
+       print("OOps you lost!")
+       return "Cpu"
+    elif(playerhand == 'P' and computerhand == 'R'):
+       print("Congrats! You have won :)")
+       return "Player"
+    elif(playerhand == 'P' and computerhand == 'S'):
+       print("OOps you lost!")
+       return "Cpu"
+    else:
+       print("It's a tie, play again")
+       return "Tie, try again"
+
+while(playerScore != 3 and cpuScore != 3):
+
+    while True:
+        playerhand = input("\npick a hand, Rock, Paper, or Scissors: ")
+        if(playerhand == "R" or playerhand == "P" or playerhand == "S"):
+          break
+        else:
+           print("error, Try again")
+
+computerhand = random.choice(possibleHands)
+
+
+print("Your hand: ", playerhand)
+print("Cpu hand: ", computerhand)
+result = checkforwinner(playerhand, computerhand)
+if(result == "Player"):
+   playerScore += 1
+elif(result == "Cpu"):
+    cpuScore += 1
+else:
+    tieScore += 1
+print("Your score: ", playerScore, "Cpu: ", "Tie: ", tieScore)
+
+
+print("Game Over")
+
+
+    
