@@ -5,7 +5,7 @@ print("******************************")
 
 def play():
     user = input("What's your choice? 'R' for Rock, 'P' for Paper, 'S' for Scissors")
-    user = user.lower
+    
 
     computer = random.choice(['R', 'P', 'S'])
 
